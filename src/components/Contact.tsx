@@ -7,7 +7,7 @@ const Contact = () => {
   const [emailMessage, setEmailMessage] = useState("");
   const [emailTextColor, setEmailTextColor] = useState("");
 
-  const form = useRef();
+  const form = useRef<any>();
 
   // clear message
   useEffect(() => {
@@ -20,16 +20,16 @@ const Contact = () => {
     return () => clearTimeout(timer);
   }, [emailMessage]);
 
-  const sendEmail = (e) => {
+  const sendEmail = (e: any) => {
     e.preventDefault();
 
     emailjs.sendForm("", "", form.current, "").then(
       (result) => {
-        setEmailMessage("Your email was send :)", result);
+        setEmailMessage("Your email was send :)");
         setEmailTextColor("green");
       },
       (error) => {
-        setEmailMessage("Your email was not sent :(", error);
+        setEmailMessage("Your email was not sent :(");
         setEmailTextColor("red");
       }
     );
