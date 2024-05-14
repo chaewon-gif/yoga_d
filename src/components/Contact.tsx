@@ -24,11 +24,11 @@ const Contact = () => {
     e.preventDefault();
 
     emailjs.sendForm("", "", form.current, "").then(
-      (result) => {
+      () => {
         setEmailMessage("Your email was send :)");
         setEmailTextColor("green");
       },
-      (error) => {
+      () => {
         setEmailMessage("Your email was not sent :(");
         setEmailTextColor("red");
       }
